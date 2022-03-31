@@ -5,5 +5,5 @@
 
 #### Steps:
 
-- Run in terminal: **`sudo ./backup.sh`**;
+- Run in terminal: **`sudo ./start.sh`**;
 - Follow carefully the steps in terminal output.

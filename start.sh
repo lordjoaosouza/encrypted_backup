@@ -4,7 +4,7 @@ sudo echo
 
 # paths
 backup_path="/testbackup"  # backup origin
-storage_path="/mnt/backup" # backup destination
+storage_path="/mnt/backup"  # backup destination
 
 end() {
   # end application
@@ -87,7 +87,7 @@ encrypt() {
     echo "Failed disk encrypting."
   else
     echo
-    echo "Failed disk encrypting."
+    echo "Failed disk encrypting."  # TODO: check 3 times wrong passwords 
   fi
 
   menu
