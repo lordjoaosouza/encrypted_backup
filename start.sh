@@ -4,7 +4,7 @@ sudo echo
 
 # paths
 backup_path="/testbackup"  # backup origin
-storage_path="/mnt/backup"  # backup destination
+storage_path="/mnt/backup" # backup destination
 
 end() {
   # end application
@@ -50,15 +50,25 @@ menu() {
   case $option in
   1)
     clear
+    menu
     ;;
   2)
     encrypt
+    menu
+    ;;
+  3)
+    backup
+    menu
     ;;
   *)
     end
     ;;
   esac
+  sda
+}
 
+in_use() {
+  # check device use (if busy: force stop)
 }
 
 clear() {
@@ -72,35 +82,42 @@ clear() {
     echo "Done disk cleaning."
     ;;
   esac
-
-  menu
 }
 
-encrypt() {
+encrypt() { # TODO: check 3 times wrong passwords
   # set up LUKS encryptation
   sudo cryptsetup luksFormat $device
 
-  if [ $? == 0 ]; then
+  case $? in
+  0)
     echo
     echo "Done disk encrypting."
-  elif [ $? == 1 ]; then
+    ;;
+  1)
     echo "Failed disk encrypting."
-  else
+    ;;
+  2)
     echo
-    echo "Failed disk encrypting."  # TODO: check 3 times wrong passwords 
-  fi
-
-  menu
+    echo "Failed disk encrypting."
+    encrypt
+    ;;
+  esac
 }
 
 open_encryptation() {
-  echo
-  echo "To implement"
+  # open LUKS encryption
 }
 
 close_encryptation() {
-  echo
-  echo "To implement"
+  # close LUKS encryption
+}
+
+directory() {
+  # check directory to backup
+}
+
+backup() {
+  # start backup
 }
 
 mount_device() {
