@@ -64,11 +64,11 @@ menu() {
     end
     ;;
   esac
-  sda
 }
 
 in_use() {
   # check device use (if busy: force stop)
+  echo
 }
 
 clear() {
@@ -106,18 +106,22 @@ encrypt() { # TODO: check 3 times wrong passwords
 
 open_encryptation() {
   # open LUKS encryption
+  echo
 }
 
 close_encryptation() {
   # close LUKS encryption
+  echo
 }
 
 directory() {
   # check directory to backup
+  echo
 }
 
 backup() {
   # start backup
+  echo
 }
 
 mount_device() {
